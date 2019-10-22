@@ -1,4 +1,8 @@
 import { Component } from '@angular/core';
+import { UserService } from './user/user.services';
+
+
+
 
 @Component({
   selector: 'app-root',
@@ -6,5 +10,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'PRSClientSolution';
+  constructor (private usersvc: UserService) {
+    this.usersvc.list().subscribe(users => console.log(users)
+    );
+  }
 }
