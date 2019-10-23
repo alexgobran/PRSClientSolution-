@@ -1,0 +1,17 @@
+li {
+    display: inline-block;
+    text-align: center;
+     
+
+}
+
+a{
+    text-decoration: underline;
+    color: floralwhite;
+    padding: 0 15px;
+}
+
+a:hover {
+    color: darkolivegreen;
+    background: floralwhite ;
+}

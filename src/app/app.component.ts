@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { UserService } from './user/user.services';
+import { VendorService } from './vendor/vendor.services';
 
 
 
@@ -10,8 +11,11 @@ import { UserService } from './user/user.services';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  constructor (private usersvc: UserService) {
-    this.usersvc.list().subscribe(users => console.log(users)
-    );
-  }
+  constructor (private usersvc: UserService, vendorsvc: VendorService) {
+    
+  };
+
+  
+  
 }
+

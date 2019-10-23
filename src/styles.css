@@ -8,3 +8,7 @@
 
     font-style: italic;
 }
+tr.tableheader a {
+    cursor: pointer;
+    font-weight: bold;
+}

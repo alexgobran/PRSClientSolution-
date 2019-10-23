@@ -1,14 +1,14 @@
-<div class="componenet">
+<div class="component">
 
     <div class="header">
       <span class="pagetitle">User list</span> |
     </div>
 
-    <table class="table table-sm" >
+    <table *ngIf="user"class="table table-sm" >
 
     <tr>
       <td>Id</td>
-      <td><input [(ngModel)]="user.id" type= "id" disabled> </td>
+      <td><input [(ngModel)]= "user.id" type= "id" disabled> </td>
     </tr>
   
     <tr>

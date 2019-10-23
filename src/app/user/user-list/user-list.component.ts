@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+
 import { UserService} from '../user.services';
 import { User} from '../user.class';
 
@@ -10,7 +11,17 @@ import { User} from '../user.class';
 export class UserListComponent implements OnInit {
 
   users: User[]=[];
+  sortCriteria: string = "lastname";
+  sortOrder: string  = "desc";
+  searchCriteria: string ='';
+  substr: string = '';
 
+  sortBy(prop: string): void {
+    if(this.sortCriteria === prop) {
+      this.sortOrder === 'desc' ? 'asc' : 'desc';
+    }
+  this.sortCriteria = prop;
+  }
   constructor(private usersvc:UserService) { 
     
   }

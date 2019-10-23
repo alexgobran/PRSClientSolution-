@@ -23,7 +23,7 @@ export class UserDetailComponent implements OnInit {
     private usersvc: UserService) { }
 
   edit(): void {
-    this.router.navigateByUrl("/users/edit/${this.user.id}");
+    this.router.navigateByUrl(`/users/edit/ ${this.user.id}`);  
   }
   verify(): void {
     this.verifyDelete = !this.verifyDelete;
@@ -34,7 +34,7 @@ export class UserDetailComponent implements OnInit {
 
       res => {
         console.log("User delete res:", res);
-        this.router.navigateByUrl("/users.list");
+        this.router.navigateByUrl("/users/list");
       }
             ,err => console.error(err)
     );

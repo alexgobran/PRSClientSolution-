@@ -30,10 +30,10 @@ create(user:User) : Observable<any> {
 return this.http.post(`${baseUrl}`, user) as Observable<any>;
 }
 change(user:User) : Observable<any> {
-    return this.http.put (`${baseUrl}/${user.Id}`,user) as Observable<any>;
+    return this.http.put (`${baseUrl}/${user.id}`,user) as Observable<any>;
 }
 remove(user:User) : Observable<any> {
-    return this.http.delete(`${baseUrl}/${user.Id}`) as Observable<any>;
+    return this.http.delete(`${baseUrl}/${user.id}`) as Observable<any>;
 }
 
      constructor(private http: HttpClient){}
