@@ -28,7 +28,7 @@ export class VendorDetailComponent implements OnInit {
 
       res => {
         console.log("Vendor delete res:", res);
-        this.router.navigateByUrl("/vendor/list");
+        this.router.navigateByUrl("/vendors/list");
       }
             ,err => console.error(err)
     );

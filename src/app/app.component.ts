@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { UserService } from './user/user.services';
 import { VendorService } from './vendor/vendor.services';
+import { ProductService } from './product/product.services';
+
 
 
 
@@ -11,7 +13,7 @@ import { VendorService } from './vendor/vendor.services';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  constructor (private usersvc: UserService, vendorsvc: VendorService) {
+  constructor (private usersvc: UserService, vendorsvc: VendorService, productsvc: ProductService) {
     
   };
 

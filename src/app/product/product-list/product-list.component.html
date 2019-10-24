@@ -1,0 +1,45 @@
+
+  <app-menu></app-menu>
+  <div class = "componenet">
+  <div class = "header">
+<span class= "pagetitle">Product list</span>  |
+<span class = "createlink">
+  <a routerLink= "/products/create">Create</a>
+</span> |
+<input [(ngModel)] = "searchCriteria" type="text" placeholder="Search">
+<table  style = width:100%>
+
+  <tr class ="tableheader">
+    <td>Id</td>
+    <td><a (click)= "sortBy('partNbr')">PartNbr</a></td>
+    <td><a (click)= "sortBy('name')">Name</a></td>
+    <td><a (click)= "sortBy('price')">Price</a></td>
+    <td><a (click)= "sortBy('unit')">Unit</a></td>
+    <td><a (click)= "sortBy('vendorId')">Vendor</a></td>
+    <td>Actions</td>
+
+  </tr>
+  <tr *ngFor = "let product of products |searchProducts: searchCriteria | sort:sortCriteria:sortOrder ">
+     
+     
+     
+      <td>{{product.id}}</td>
+      <td>{{product.partNbr}}</td>
+      <td>{{product.name}} </td>
+      <td>{{product.price}}</td>
+      <td>{{product.unit}}</td>
+      <td>{{product.vendor.name}}</td>
+      
+  <td>
+    <span class="actiondetail">
+      <a routerLink="/products/detail/{{product.id}}">Detail</a>
+    </span> | <span class="actiondetail">
+    <a routerLink="/products/edit/{{product.id}}">Edit</a>
+  </span>
+  
+  </td>
+
+  </tr>
+</table>
+</div>
+

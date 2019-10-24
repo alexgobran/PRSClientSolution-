@@ -15,7 +15,7 @@ export class VendorCreateComponent implements OnInit {
     private vendorsvc: VendorService
   ) { }
 
-  save():void {
+  save2():void {
     
     this.vendorsvc.create(this.vendor).subscribe(
       res => {

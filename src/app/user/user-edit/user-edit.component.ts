@@ -27,7 +27,7 @@ export class UserEditComponent implements OnInit {
 
     this.usersvc.change(this.user).subscribe(
       res => {
-        console.log("User change resp: ", res)
+        console.log("User change res: ", res)
         this.router.navigateByUrl("users/list");
       }
       , err => {

@@ -22,7 +22,7 @@ vendor: Vendor;
     
       this.vendorsvc.change(this.vendor).subscribe(
       res => {
-        console.log("Vendor change resp: ", res)
+        console.log("Vendor change res: ", res)
         this.router.navigateByUrl("vendors/list");
       }
       , err => {
