@@ -18,7 +18,6 @@ const routes: Routes = [
   {path: 'users/detail/:id',component: UserDetailComponent},
   {path: 'users/edit/:id',component:UserEditComponent},
 
-  // {path:'', redirectTo:"/vendors/list", pathMatch:'full'},
   {path: 'vendors/list', component: VendorListComponent},
     {path: 'vendors/create',component: VendorCreateComponent},
   {path: 'vendors/detail/:id',component: VendorDetailComponent},
