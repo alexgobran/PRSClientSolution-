@@ -13,6 +13,11 @@ import {ProductListComponent} from './product/product-list/product-list.componen
 import { ProductCreateComponent } from './product/product-create/product-create.component';
 import { ProductEditComponent } from './product/product-edit/product-edit.component';
 import { ProductDetailComponent } from './product/product-detail/product-detail.component';
+import { RequestDetailComponent } from './request/request-detail/request-detail.component';
+import {RequestListComponent} from './request/request-list/request-list.component';
+import { RequestCreateComponent } from './request/request-create/request-create.component';
+import { RequestEditComponent } from './request/request-edit/request-edit.component';
+import {LoginComponent} from './login/login.component';
 
 
 const routes: Routes = [
@@ -31,6 +36,15 @@ const routes: Routes = [
   {path: 'products/create',component: ProductCreateComponent},
 {path: 'products/detail/:id',component: ProductDetailComponent},
 {path: 'products/edit/:id',component:ProductEditComponent},
+
+{path: 'requests/list', component: RequestListComponent},
+  {path: 'requests/create',component: RequestCreateComponent},
+{path: 'requests/detail/:id',component: RequestDetailComponent},
+{path: 'requests/edit/:id',component:RequestEditComponent},
+
+{path: 'login', component: LoginComponent},
+ 
+
 
   {path: '**',component: FourOhFourComponent}
 

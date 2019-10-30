@@ -13,7 +13,7 @@ export class SearchProductPipe implements PipeTransform {
       if (product.id.toString().toLowerCase().includes(substr)
       || product.partNbr.toLowerCase().includes(substr)
       ||  product.name.toLowerCase().includes(substr)
-      || product.price.toString().toLowerCase().includes(substr)
+      || product.price.toString().includes(substr)
       || product.unit.toLowerCase().includes(substr)
       || product.photoPath.toLowerCase().includes(substr)
       || product.vendorId.toString().toLowerCase().includes(substr)

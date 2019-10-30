@@ -2,7 +2,7 @@ export class Product {
 
 
     id: number= 0;
-    partNbr:  string;
+    partNbr: string;
     name: string;
     price: number;
     unit: string;

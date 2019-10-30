@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
 import {UserService} from '../user.services';
 import {User} from '../user.class';
+import {SystemService} from '../../system/system.service';
 
 @Component({
   selector: 'app-user-create',
@@ -9,12 +10,14 @@ import {User} from '../user.class';
   styleUrls: ['./user-create.component.css']
 })
 export class UserCreateComponent implements OnInit {
-
+  currentuser: User;
   user:User = new User();
   password2: string;
   constructor(
     private router: Router,
-    private usersvc: UserService
+    private usersvc: UserService,
+    private syssvc: SystemService,
+
   ) { }
 
   save():void {
@@ -33,6 +36,15 @@ export class UserCreateComponent implements OnInit {
 
   }
   ngOnInit() {
+    this.currentuser = this.syssvc.GetUser();
+
+    
+
+
+
+
+
+    console.log("user:", this.currentuser);
   }
 
 }

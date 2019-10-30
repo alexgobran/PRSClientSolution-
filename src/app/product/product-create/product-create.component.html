@@ -1,3 +1,63 @@
-<p>
-  product-create works!
-</p>
+
+
+
+<app-menu></app-menu>
+<div class="component"> 
+
+    <div class="header">
+      <span class="pagetitle">Create Product</span> |
+    </div>
+
+    <table *ngIf="product"class="table table-sm" >
+
+    
+  
+    <tr>
+      <td>PartNbr</td>
+      <td><input [(ngModel)]="product.partNbr" type= "text" ></td>
+    </tr>
+
+    <tr>
+        <td>Name</td>
+        <td><input [(ngModel)]="product.name" type= "text" ></td>
+        
+      </tr>
+  
+    <tr>
+        <td>Price</td>
+      <td><input [(ngModel)]="product.price" type= "number" > </td>
+    </tr>
+    <tr>
+        <td>Unit</td>
+      <td><input [(ngModel)]="product.unit" type= "text" > </td>
+    </tr>
+
+    <tr>
+        <td>Photopath</td>
+      <td>
+        <input [(ngModel)]="product.photoPath" type= "text" ></td>
+    </tr>
+  
+    <tr>
+      <td>Vendor</td>
+      <td><select [(ngModel)]="product.vendorId" >
+<option *ngFor = "let vendor of vendors" [ngValue]="vendor.id">{{vendor.name}}</option>
+
+<!-- <option *ngFor="let title of titleArray" 
+    [value]="title.Value" 
+    [attr.selected]="passenger.Title==title.Text ? true : null">
+  {{title.Text}}
+</option> -->
+</select>
+      </tr>
+      
+    
+  
+        
+   
+  
+        
+          </table>
+          <button (click)= "save2()" class="btn-primary btn-save">Save</button>
+  
+  </div>

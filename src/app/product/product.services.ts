@@ -25,7 +25,8 @@ get (id: string): Observable<Product> {
 }
 
 create(product:Product) : Observable<any> {
-return this.http.post(`${baseUrl}`, product) as Observable<any>;
+    // console.log(product);
+return this.http.post(`${baseUrl}`,product) as Observable<any>;
 }
 change(product:Product) : Observable<any> {
     return this.http.put (`${baseUrl}/${product.id}`,product) as Observable<any>;

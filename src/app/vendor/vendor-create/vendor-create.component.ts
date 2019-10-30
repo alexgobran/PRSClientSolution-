@@ -9,6 +9,7 @@ import {Vendor} from '../vendor.class';
   styleUrls: ['./vendor-create.component.css']
 })
 export class VendorCreateComponent implements OnInit {
+  
   vendor:Vendor = new Vendor();
   constructor(
     private router: Router,

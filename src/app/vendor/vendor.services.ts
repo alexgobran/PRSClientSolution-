@@ -25,7 +25,7 @@ get (id: string): Observable<Vendor> {
 }
 
 create(vendor:Vendor) : Observable<any> {
-return this.http.post(`${baseUrl}`, vendor) as Observable<any>;
+return this.http.post(`${baseUrl}`,vendor) as Observable<any>;
 }
 change(vendor:Vendor) : Observable<any> {
     return this.http.put (`${baseUrl}/${vendor.id}`,vendor) as Observable<any>;

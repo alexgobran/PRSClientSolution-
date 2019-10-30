@@ -1,0 +1,49 @@
+
+  <app-menu></app-menu>
+  <div class = "componenet">
+  <div class = "header">
+<span class= "pagetitle">Request list</span>  |
+<span class = "createlink">
+  <a routerLink= "/requests/create">Create</a>
+</span> |
+<input [(ngModel)] = "searchCriteria" type="text" placeholder="Search">
+<table  style = width:100%>
+
+  <tr class ="tableheader">
+    <td>Id</td>
+    <td><a (click)= "sortBy('description')">Description</a></td>
+    <td><a (click)= "sortBy('justification')">Justification</a></td>
+    <td><a (click)= "sortBy('rejectionReason')">RejectionReason</a></td>
+    <td><a (click)= "sortBy('deliveryMode')">DeliveryMode</a></td>
+    <td><a (click)= "sortBy('status')">Status</a></td>
+    <td><a (click)= "sortBy('total')">Total</a></td>
+    <td><a (click)= "sortBy('user.name')">User</a></td>
+    <td>Actions</td>
+
+  </tr>
+  <tr *ngFor = "let request of requests |searchRequests: searchCriteria | sort:sortCriteria:sortOrder ">
+     
+     
+     
+      <td>{{request.id}}</td>
+      <td>{{request.description}}</td>
+      <td>{{request.justification}} </td>
+      <td>{{request.rejectionReason}}</td>
+      <td>{{request.deliveryMode}}</td>
+      <td>{{request.status}}</td>
+      <td>{{request.total}}</td>
+      <td>{{request.user.username}}</td>
+      
+  <td>
+    <span class="actiondetail">
+      <a routerLink="/requests/detail/{{request.id}}">Detail</a>
+    </span> | <span class="actiondetail">
+    <a routerLink="/requests/edit/{{request.id}}">Edit</a>
+  </span>
+  
+  </td>
+
+  </tr>
+</table>
+</div>
+

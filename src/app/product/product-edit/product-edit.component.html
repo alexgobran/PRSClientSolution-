@@ -1,3 +1,56 @@
-<p>
-  product-edit works!
-</p>
+
+<app-menu></app-menu>
+<div class="component">
+
+    <div class="header">
+      <span class="pagetitle">Edit Product</span> |
+    </div>
+
+    <table *ngIf="product"class="table table-sm" >
+
+    <tr>
+      <td>Id</td>
+      <td><input [(ngModel)]= "product.id" type= "id" disabled> </td>
+    </tr>
+  
+    <tr>
+      <td>PartNbr</td>
+      <td><input [(ngModel)]="product.partNbr" type= "text" ></td>
+    </tr>
+
+    <tr>
+        <td>Name</td>
+        <td><input [(ngModel)]="product.name" type= "text" ></td>
+        
+      </tr>
+  
+    <tr>
+        <td>Price</td>
+      <td><input [(ngModel)]="product.price" type= "number" > </td>
+    </tr>
+    <tr>
+        <td>Unit</td>
+      <td><input [(ngModel)]="product.unit" type= "number" > </td>
+    </tr>
+
+    <tr>
+        <td>Photopath</td>
+      <td>
+        <input [(ngModel)]="product.photoPath" type= "text" ></td>
+    </tr>
+  
+    <tr>
+      <td>Vendor</td>
+      <td><input [(ngModel)]="product.vendor.name" type= "text" ></td>
+      </tr>
+      
+    
+  
+        
+   
+  
+        
+          </table>
+          <button (click)= "save2()" class="btn-primary btn-save">Save</button>
+  
+  </div>
