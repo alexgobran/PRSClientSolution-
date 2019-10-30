@@ -50,7 +50,7 @@ console.log("before create",this.request);
     this.currentuser = this.syssvc.GetUser();
 
     
-    this.request.userId = this.currentuser.id;
+    this.request.usersId = this.currentuser.id;
 
 
 
@@ -61,7 +61,7 @@ console.log("before create",this.request);
 }
 
 
-//  this.syssvc.checkLogin();this.request.userId=this.syssvc.loggedInUser.id;
+//  this.syssvc.checkLogin();this.request.usersId=this.syssvc.loggedInUser.id;
 //  this.loggedInUserUsername = this.syssvc.loggedInUser.username;
 
 

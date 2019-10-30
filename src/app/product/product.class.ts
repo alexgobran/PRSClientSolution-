@@ -7,7 +7,7 @@ export class Product {
     price: number;
     unit: string;
     photoPath: string;
-    vendorId: number;
+    vendorsId: number;
     
 
     constructor(){}

@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
 
     userlogin():void {
     
-
+console.log("before userlogin method")
       this.usersvc.login(this.Username,this.password).subscribe(
         resp=>{ 
           this.Syssvc.SetUser(resp)

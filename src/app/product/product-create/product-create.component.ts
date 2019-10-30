@@ -41,7 +41,7 @@ export class ProductCreateComponent implements OnInit {
     );
     
     console.log("vendors:", this.vendors);
-//  this.syssvc.checkLogin();this.request.userId=this.syssvc.loggedInUser.id;
+//  this.syssvc.checkLogin();this.request.usersId=this.syssvc.loggedInUser.id;
 //  this.loggedInUserUsername = this.syssvc.loggedInUser.username;
     
   }

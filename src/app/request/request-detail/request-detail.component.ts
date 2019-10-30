@@ -42,7 +42,7 @@ currentuser: User;
     // this.currentuser = this.syssvc.GetUser();
 
     
-    //   this.request.userId= this.currentuser.id;
+    //   this.request.usersId= this.currentuser.id;
 
     let requestid = this.route.snapshot.params.id
    

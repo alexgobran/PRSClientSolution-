@@ -17,7 +17,7 @@ export class SearchRequestPipe implements PipeTransform {
       || request.rejectionReason.toLowerCase().includes(substr)
       || request.status.toLowerCase().includes(substr)
       || request.total.toString().includes(substr)
-      || request.userId.toString().toLowerCase().includes(substr)
+      || request.usersId.toString().toLowerCase().includes(substr)
   
         )
       {
