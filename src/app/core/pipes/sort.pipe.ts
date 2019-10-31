@@ -7,11 +7,10 @@ export class SortPipe implements PipeTransform {
 
   transform(arr: any[], prop: string ="id", order: string ="asc"):any[] {
    
-//sort function in another function
     const sortOrder = ( p1: any, p2: any) => {
-      if (p1[prop] = null ){
+      if (p1[prop] == null ){
          p1[prop]= "";
-         if (p2[prop] = null ){
+         if (p2[prop] == null ){
           p2[prop]= "";
     }
 

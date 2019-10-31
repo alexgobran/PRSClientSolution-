@@ -6,9 +6,10 @@
 
     <div class="header">
       <span class="pagetitle">Create Product</span> |
+      <span><a routerLink= "/products/list">Return to Product List</a></span>
     </div>
 
-    <table *ngIf="product"class="table table-sm" >
+    <table class="table table-sm" >
 
     
   
@@ -25,7 +26,7 @@
   
     <tr>
         <td>Price</td>
-      <td><input [(ngModel)]="product.price" type= "number" > </td>
+      <td><input [(ngModel)]="product.price" type= "price" > </td>
     </tr>
     <tr>
         <td>Unit</td>

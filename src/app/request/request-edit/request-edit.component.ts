@@ -56,17 +56,17 @@ console.log("before edit",this.request);
 
 
 
-    this.requestsvc.get(userid).subscribe(
-      req=> {
-        this.request = req;
+        this.requestsvc.get(userid).subscribe(
+          req=> {
+            this.request = req;
+            
         
-    
 
-        console.log("User:", req);
-      }
-      , err => {
-        console.error(err)
-      })
+            console.log("User:", req);
+          }
+          , err => {
+            console.error(err)
+          })
 
 
     // console.log("user:", this.currentuser);

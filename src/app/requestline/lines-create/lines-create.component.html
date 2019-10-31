@@ -1,0 +1,46 @@
+<app-menu></app-menu>
+<div class="component">
+
+  <div class="header">
+    <span class="pagetitle">Create RequestLine</span> |
+    <span>
+        <a routerLink="/requests/list"> Return to Request Lines</a>
+      </span>
+  </div>
+
+  <table class="table table-sm">
+
+
+
+    <tr>
+      <td>RequestId</td>
+      <td><input [(ngModel)]="line.requestsId" type="id"></td>
+    </tr>
+
+    <tr>
+      <td>ProductId</td>
+      <td><input [(ngModel)]="line.productsId" type="id"></td>
+
+    </tr>
+
+    
+
+    <tr>
+      <td>Quantity</td>
+      <td><input [(ngModel)]="line.quantity" type="number"> </td>
+    </tr>
+
+    
+
+    
+
+    <tr>
+      <td>User</td>
+      <td>{{currentrequest.id}}</td>
+    </tr>
+
+
+  </table>
+  <button (click)="save2()" class="btn-primary btn-save">Save</button>
+
+</div>

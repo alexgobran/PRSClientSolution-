@@ -2,9 +2,9 @@
   <app-menu></app-menu>
   <div class = "componenet">
   <div class = "header">
-<span class= "pagetitle">Request list</span>  |
+<span class= "pagetitle">Request Lines</span>  |
 <span class = "createlink">
-  <a routerLink= "/requests/create">Create</a>
+  <a routerLink= "/requestlines/create">Create</a>
 </span> |
 <input [(ngModel)] = "searchCriteria" type="text" placeholder="Search">
 <table  style = width:100%>
@@ -19,6 +19,7 @@
     <td><a (click)= "sortBy('total')">Total</a></td>
     <td><a (click)= "sortBy('user.name')">User</a></td>
     <td>Actions</td>
+    
 
   </tr>
   <tr *ngFor = "let request of requests |searchRequests: searchCriteria | sort:sortCriteria:sortOrder ">
@@ -34,17 +35,15 @@
       <td>{{request.total}}</td>
       <td>{{request.user.username}}</td>
       
-  <td>
-    <span class="actiondetail">
-      <a routerLink="/requests/detail/{{request.id}}">Detail</a>
+      <td>
+        <span class="actiondetail">
+        <a routerLink="/requests/edit/{{request.id}}">Edit</a>
+    
     </span> | <span class="actiondetail">
-    <a routerLink="/requests/edit/{{request.id}}">Edit</a>
-
-</span> | <span class="actiondetail">
-    <a routerLink="/requestlines/line/{{request.id}}">Lines</a>
-  </span>
-  
-  </td>
+        <a routerLink="/requestlines/line/{{request.id}}">Delete</a>
+      </span>
+      
+      </td>
   
   </tr>
 </table>

@@ -1,5 +1,5 @@
 
-export class RequestLines {
+export class Line {
     
 
     id: number= 0;

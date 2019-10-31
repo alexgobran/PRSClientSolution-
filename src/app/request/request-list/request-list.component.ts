@@ -3,6 +3,11 @@ import { RequestService} from '../request.services';
 import { Request} from '../request.class';
 import { getDefaultService } from 'selenium-webdriver/opera';
 import {SystemService} from '../../system/system.service';
+import { Line} from '../../requestline/requestLines.class';
+import { LineService} from '../../requestline/requestLines.services';
+import { Subscriber } from 'rxjs';
+
+
 
 @Component({
   selector: 'app-request-list',
@@ -12,6 +17,7 @@ import {SystemService} from '../../system/system.service';
 export class RequestListComponent implements OnInit {
   get= this.syssvc.GetUser();
   requests: Request[]=[];
+  lines: Line[]=[];
   sortCriteria: string = "lastname";
   sortOrder: string  = "desc";
   searchCriteria: string ='';
@@ -26,6 +32,8 @@ export class RequestListComponent implements OnInit {
   constructor(
     private requestsvc:RequestService,
     private syssvc:SystemService,
+    private linesvc:LineService,
+
   
     ) { 
     
@@ -33,18 +41,41 @@ export class RequestListComponent implements OnInit {
 
 
   ngOnInit() {
+
+    
    
     this.get;
-   
+    // this.linesvc.list().subscribe(lines => {
+      
+    //   this.lines = lines;
+    //   console.log("Requestlines",lines);
+    // },
+    // err =>{
+    //   console.error(err);
+    // })
 
     this.requestsvc.list().subscribe(requests => {
       
       this.requests = requests;
       console.log("Requests",requests);
-  },
-err =>{
-  console.error(err);
-})
-}
-}
+    },
+      err =>{
+        console.error(err);
+      })
+    }
+  }
+      
 
+
+      
+    
+      
+
+      
+
+      
+      
+      
+    
+
+      

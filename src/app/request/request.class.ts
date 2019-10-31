@@ -8,7 +8,7 @@ export class Request {
     deliveryMode: string;
     status: string = "NEW";
     total: number = 0;
-    usersId: number;
+    usersId: number= 0;
     
 
     constructor(){}

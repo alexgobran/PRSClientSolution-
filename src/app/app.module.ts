@@ -30,9 +30,9 @@ import { RequestEditComponent } from './request/request-edit/request-edit.compon
 import { RequestListComponent } from './request/request-list/request-list.component';
 import { SearchRequestPipe } from './core/pipes/search-request.pipe';
 import { LoginComponent } from './login/login.component';
-import { LinesComponent } from './requestlines/lines/lines.component';
-import { LinesEditComponent } from './requestlines/lines-edit/lines-edit.component';
-import { LinesCreateComponent } from './requestlines/lines-create/lines-create.component';
+import { LineComponent } from './requestline/lines/lines.component';
+import { LineEditComponent } from './requestline/lines-edit/lines-edit.component';
+import { LineCreateComponent } from './requestline/lines-create/lines-create.component';
 import { SearchLinesPipe } from './core/pipes/search-lines.pipe';
 
 @NgModule({
@@ -64,9 +64,9 @@ import { SearchLinesPipe } from './core/pipes/search-lines.pipe';
     RequestListComponent,
     SearchRequestPipe,
     LoginComponent,
-    LinesComponent,
-    LinesEditComponent,
-    LinesCreateComponent,
+    LineComponent,
+    LineEditComponent,
+    LineCreateComponent,
     SearchLinesPipe
   ],
   imports: [
