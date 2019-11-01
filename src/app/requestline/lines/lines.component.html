@@ -1,13 +1,13 @@
-
+<div *ngIf="request">
   <app-menu></app-menu>
   <div class = "componenet">
   <div class = "header">
 <span class= "pagetitle">Request Lines</span>  |
-<span class = "createlink">
+<span *ngIf="request" class = "createlink">
   <a routerLink= "/requestlines/create/{{request.id}}">Create</a>
 </span> |
 <input [(ngModel)] = "searchCriteria" type="text" placeholder="Search">
-<table  style = width:100%>
+<table *ngIf="request" style = "width:100%">
 
   <tr class ="tableheader">
     <td>Id</td>
@@ -46,29 +46,34 @@
 
 <br>
 
-<table  style = width:100%>
+<table *ngIf="request"  style = width:100%>
 
   <tr class ="tableheader">
     <td>Id</td>
     <td><a (click)= "sortBy('product')">Product</a></td>
-    <td><a (click)= "sortBy('status')">Quantity</a></td>
+    <td><a (click)= "sortBy('quantity')">Quantity</a></td>
     <!-- <td><a (click)= "sortBy('total')">Price</a></td> -->
     <!-- <td><a (click)= "sortBy(' ')">Subtotal</a></td> -->
     <td>Actions</td>
     
+    <!-- <td><select [(ngModel)]="product.vendorsId" >
+        <option *ngFor = "let vendor of vendors" [ngValue]="vendor.id">{{vendor.name}}</option>
+        
+        
+        </select> -->
 
   </tr>
-  <tr *ngFor = "let line of lines |searchLines: searchCriteria | sort:sortCriteria:sortOrder ">
+  <tr *ngFor = "let line of request.requestLine |searchLines: searchCriteria | sort:sortCriteria:sortOrder ">
      
      
      <td>{{line.id}}</td>
       <td>{{line.product.name}}</td>
-      <td>{{line.product.quantity}}</td>
+      <td>{{line.quantity}}</td>
       
       
       <td>
         <span class="actiondetail">
-        <a routerLink="/requestlines/edit/{{requestid}}">Edit</a>
+        <a routerLink="/requestlines/edit/{{line.requestsId}}">Edit</a>
     
     </span> | <span class="actiondetail">
         <button (click)="delete()" class="btn-primary btn-delete">Delete</button>
@@ -79,5 +84,6 @@
   </tr>
 
 </table>
+</div>
 </div>
 

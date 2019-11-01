@@ -50,10 +50,10 @@ sortCriteria: string = "lastname";
       this.linesvc.remove(this.line).subscribe(
   
         res => {
-          let requestid = this.route.snapshot.params.id
+          // let requestid = this.route.snapshot.params.id
 
           console.log("Line delete res:", res);
-          this.router.navigateByUrl(`requestlines/line/${requestid}`);
+          this.router.navigateByUrl("/requestlines/line/{{line.requestId}}");
         }
               ,err => console.error(err)
       );
@@ -63,9 +63,9 @@ sortCriteria: string = "lastname";
 
 
      let requestid = this.route.snapshot.params.id
-     this.requestsvc.get(requestid).subscribe(request => {
-      this.request = request;
-      console.log("Lines",request);
+     this.requestsvc.get(requestid).subscribe(req => {
+      this.request = req;
+      console.log("Lines",req);
   },
 err =>{
   console.error(err);
@@ -85,13 +85,6 @@ err =>{
   //       , err => {
   //         console.error(err)
   //       })
-    this.linesvc.list().subscribe(lines => {
-      this.lines = lines;
-      console.log("Lines",lines);
-  }
-        , err => {
-          console.error(err)
-        })
   
     
 }

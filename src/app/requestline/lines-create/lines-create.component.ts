@@ -38,7 +38,7 @@ line: Line = new Line();
     this.linesvc.create(this.line).subscribe(
       res => {
         console.log("Res from Line create:",res);
-      this.router.navigateByUrl("/requestlines/line/{{requestid}}");
+      this.router.navigateByUrl(`/requestlines/line/${this.request.id}`);
      }
       ,err => {console.log(err); }
       
