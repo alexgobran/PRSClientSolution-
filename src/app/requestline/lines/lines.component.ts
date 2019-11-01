@@ -45,7 +45,11 @@ sortCriteria: string = "lastname";
     private usersvc: UserService,
     private syssvc: SystemService,
     ) { }
+   
 
+    edit(): void {
+      this.router.navigateByUrl(`/requestlines/edit/ ${this.line.requestsId}`); 
+    }
     delete(): void {
       this.linesvc.remove(this.line).subscribe(
   
@@ -53,7 +57,7 @@ sortCriteria: string = "lastname";
           // let requestid = this.route.snapshot.params.id
 
           console.log("Line delete res:", res);
-          this.router.navigateByUrl("/requestlines/line/{{line.requestId}}");
+          this.router.navigateByUrl("/requestlines/line/{{line.requestsId}}");
         }
               ,err => console.error(err)
       );
