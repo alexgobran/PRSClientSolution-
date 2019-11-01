@@ -6,6 +6,7 @@ import { RequestService} from '../../request/request.services';
 import { Request} from '../../request/request.class';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UserService} from '../../user/user.services';
+import { User } from '../../user/user.class';
 
 
 
@@ -19,14 +20,16 @@ import { UserService} from '../../user/user.services';
 })
 export class LineComponent implements OnInit {
 
-  get= this.syssvc.GetUser();
+   
 request:Request;
+currentuser: User;
 lines: Line[]=[];
+line: Line;
 sortCriteria: string = "lastname";
   sortOrder: string  = "desc";
   searchCriteria: string ='';
   substr: string = '';
-    currentrequest: any;
+    
 
   sortBy(prop: string): void {
     if(this.sortCriteria === prop) {
@@ -40,20 +43,48 @@ sortCriteria: string = "lastname";
     private router: Router,
     private requestsvc: RequestService,
     private usersvc: UserService,
-    private syssvc: SystemService,) { }
+    private syssvc: SystemService,
+    ) { }
+
+    delete(): void {
+      this.linesvc.remove(this.line).subscribe(
+  
+        res => {
+          let requestid = this.route.snapshot.params.id
+
+          console.log("Line delete res:", res);
+          this.router.navigateByUrl(`requestlines/line/${requestid}`);
+        }
+              ,err => console.error(err)
+      );
+    }
 
   ngOnInit() {
-    // let requestid = this.route.snapshot.params.id
-    //   this.currentrequest = this.syssvc.GetUser();
 
-    //   this.linesvc.get(requestid).subscribe(
-    //     req=> {
-    //       this.lines= req;
+
+     let requestid = this.route.snapshot.params.id
+     this.requestsvc.get(requestid).subscribe(request => {
+      this.request = request;
+      console.log("Lines",request);
+  },
+err =>{
+  console.error(err);
+})
+
+    //    this.usersvc.get(this.currentuser).subscribe(
+    //  req=> { this.currentuser= req}
           
       
   
-    //       console.log("lines:", req);
+         console.log("user:", this.currentuser);
     //     }
+    // this.linesvc.get(this.request..id).subscribe(lines => {
+    //   this.lines = lines;
+    //   console.log("Lines",lines);
+  // }
+  //       , err => {
+  //         console.error(err)
+  //       })
     this.linesvc.list().subscribe(lines => {
       this.lines = lines;
       console.log("Lines",lines);

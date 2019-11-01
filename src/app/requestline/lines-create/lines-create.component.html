@@ -1,43 +1,39 @@
 <app-menu></app-menu>
 <div class="component">
-
   <div class="header">
     <span class="pagetitle">Create RequestLine</span> |
     <span>
-        <a routerLink="/requests/list"> Return to Request Lines</a>
-      </span>
-  </div>
+      <a routerLink="/requests/list"> Return to Request Lines</a>
+    </span>
+  
 
   <table class="table table-sm">
 
 
 
     <tr>
-      <td>RequestId</td>
-      <td><input [(ngModel)]="line.requestsId" type="id"></td>
+      <td>RequestId:</td>
+      <td>{{line.requestsId}}</td>
     </tr>
 
     <tr>
-      <td>ProductId</td>
-      <td><input [(ngModel)]="line.productsId" type="id"></td>
+      <td>Product</td>
+      <td><select [(ngModel)]="line.productsId">
+          <option *ngFor="let product of products" [ngValue]="product.id">{{product.name}}</option>
+        </select>
+      </tr> 
 
-    </tr>
-
-    
 
     <tr>
       <td>Quantity</td>
       <td><input [(ngModel)]="line.quantity" type="number"> </td>
     </tr>
 
-    
+
+
+
 
     
-
-    <tr>
-      <td>User</td>
-      <td>{{currentrequest.id}}</td>
-    </tr>
 
 
   </table>

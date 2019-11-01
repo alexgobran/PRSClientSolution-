@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { Router} from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import {LineService} from '../requestLines.services';
 import {Line} from '../requestLines.class';
 import {RequestService} from '../../request/request.services';
 import {Request} from '../../request/request.class';
+import {Product} from '../../product/product.class';
+import {ProductService} from '../../product/product.services';
 
-import {Vendor} from '../../vendor/vendor.class';
+
  import {SystemService} from '../../system/system.service'
  import {User} from '../../user/user.class';
 
@@ -16,14 +18,19 @@ import {Vendor} from '../../vendor/vendor.class';
   styleUrls: ['./lines-create.component.css']
 })
 export class LineCreateComponent implements OnInit {
-  requests: Request[];
-  currentrequest: Request;
+  currentuser: User;
+  request: Request;
+  products: Product[];
 line: Line = new Line();
-currentuser: User;
+ requestid = this.route.snapshot.params.id
+
   constructor(
+    private route: ActivatedRoute,
     private router: Router,
     private linesvc: LineService,
     private requestsvc: RequestService,
+    private productsvc: ProductService,
+
     private syssvc: SystemService
   ) { }
   save2():void {
@@ -31,7 +38,7 @@ currentuser: User;
     this.linesvc.create(this.line).subscribe(
       res => {
         console.log("Res from Line create:",res);
-      this.router.navigateByUrl('/requestlines/line{{request.id}}');
+      this.router.navigateByUrl("/requestlines/line/{{requestid}}");
      }
       ,err => {console.log(err); }
       
@@ -40,20 +47,35 @@ currentuser: User;
   }
 
   ngOnInit() {
-    this.requestsvc.list().subscribe(
-      resp=>{this.requests=resp}
+
+    this.productsvc.list().subscribe(
+      resp=>{this.products=resp}
     );
-    console.log("requests:", this.requests);
+    console.log("products:", this.products);
 
-    // this.line.requestsId = this.currentrequest.d;
+    this.currentuser = this.syssvc.GetUser();
+
+    this.requestsvc.get(this.requestid).subscribe(request => {
+      this.request = request;
+      console.log("Lines",request);
+    },
+    err =>{
+      console.error(err);
+    })
+    
+
+     this.line.requestsId= this.requestid
 
     
-   
+       console.log("Request:", this.request);
+      
+     
 
 
 
 
     
+  
+
   }
-
 }
