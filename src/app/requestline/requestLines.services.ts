@@ -2,6 +2,10 @@ import {Injectable} from '@angular/core';
 import { Observable } from 'rxjs';
 import { Line } from './requestLines.class';
 import { HttpClient } from '@angular/common/http';
+import {User} from '../user/user.class';
+import {SystemService} from '../system/system.service';
+
+
 
 
 
@@ -32,8 +36,12 @@ change(line:Line) : Observable<any> {
     return this.http.put (`${baseUrl}/${line.id}`,line) as Observable<any>;
 }
 remove(line:Line) : Observable<any> {
-    return this.http.delete(`${baseUrl}/${line.id}`) as Observable<any>;
+    return this.http.delete (`${baseUrl}/${line.id}`) as Observable<any>;
 }
 
-     constructor(private http: HttpClient){}
+     constructor(
+        private http: HttpClient,
+    private sysvc:SystemService,
+        ){}
+
  }

@@ -1,3 +1,43 @@
-<p>
-  lines-edit works!
-</p>
+<app-menu></app-menu>
+<div class="component">
+
+    <div class="header">
+      <span class="pagetitle">Edit Request Line</span> |
+      <span><a routerLink= "/requestlines/line/{{requestid}}">Return to Request Lines</a></span>
+    </div>
+
+    <table *ngIf="line" class="table table-sm" >
+
+    <tr>
+
+      <td>Id:</td>
+      <td><input [(ngModel)]= "line.id" type= "id" disabled> </td>
+    </tr>
+  
+    <tr>
+      <td>Product</td>
+      <td><select [(ngModel)]="line.productsId">
+          <option *ngFor="let product of products" [ngValue]="product.id">{{product.name}}</option>
+        </select>
+      </tr> 
+
+
+    <tr>
+        <td>Quantity</td>
+        <td><input [(ngModel)]="line.quantity" type= "number" ></td>
+        
+      </tr>
+  
+    
+    
+      
+    
+  
+        
+   
+  
+        
+          </table>
+          <button (click)= "save2()" class="btn-primary btn-save">Save</button>
+  
+  </div>

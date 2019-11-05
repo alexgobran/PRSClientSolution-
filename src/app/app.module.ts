@@ -34,6 +34,9 @@ import { LineComponent } from './requestline/lines/lines.component';
 import { LineEditComponent } from './requestline/lines-edit/lines-edit.component';
 import { LineCreateComponent } from './requestline/lines-create/lines-create.component';
 import { SearchLinesPipe } from './core/pipes/search-lines.pipe';
+import { ReviewListComponent } from './request/review-list/review-list.component';
+import { ReviewStatusComponent } from './request/review-status/review-status.component';
+
 
 @NgModule({
   declarations: [
@@ -67,7 +70,9 @@ import { SearchLinesPipe } from './core/pipes/search-lines.pipe';
     LineComponent,
     LineEditComponent,
     LineCreateComponent,
-    SearchLinesPipe
+    SearchLinesPipe,
+    ReviewListComponent,
+    ReviewStatusComponent
   ],
   imports: [
     BrowserModule,

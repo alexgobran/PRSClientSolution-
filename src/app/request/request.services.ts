@@ -5,6 +5,7 @@ import { HttpClient } from '@angular/common/http';
 import {UserService} from '../user/user.services';
 import {User} from '../user/user.class';
 import {SystemService} from '../system/system.service';
+import { request } from 'http';
 
 
 
@@ -42,16 +43,16 @@ remove(request:Request) : Observable<any> {
 }
 
 reject(request:Request) : Observable<any> {
-    return this.http.put(`${baseUrl}/${request.id}`,request) as Observable<any>;
+    return this.http.put(`${baseUrl}/reject/${request.id}`,request) as Observable<any>;
 }
-reviews(request:Request) : Observable<any> {
-    return this.http.put(`${baseUrl}/${request.id}`,request) as Observable<any>;
+reviews(user:User) : Observable<any> {
+    return this.http.get(`${baseUrl}/reviewOnly/${user.id}`) as Observable<any>;
 }
 approve(request:Request) : Observable<any> {
-    return this.http.put(`${baseUrl}/${request.id}`,request) as Observable<any>;
+    return this.http.put(`${baseUrl}/approve/${request.id}`,request) as Observable<any>;
 }
-review(user:User) : Observable<any> {
-    return this.http.put(`${baseUrl}/${user.id}`,user) as Observable<any>;
+review(request:Request) : Observable<any> {
+    return this.http.put(`${baseUrl}/review/${request.id}`,request) as Observable<any>;
 
      
  }

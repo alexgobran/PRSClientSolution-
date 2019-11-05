@@ -17,9 +17,15 @@ import { RequestDetailComponent } from './request/request-detail/request-detail.
 import {RequestListComponent} from './request/request-list/request-list.component';
 import { RequestCreateComponent } from './request/request-create/request-create.component';
 import { RequestEditComponent } from './request/request-edit/request-edit.component';
+import { ReviewListComponent } from './request/review-list/review-list.component';
+import { ReviewStatusComponent } from './request/review-status/review-status.component';
+
+
 import {LineComponent} from './requestline/lines/lines.component';
 import { LineCreateComponent } from './requestline/lines-create/lines-create.component';
 import { LineEditComponent } from './requestline/lines-edit/lines-edit.component';
+
+
 import {LoginComponent} from './login/login.component';
 
 
@@ -48,6 +54,10 @@ const routes: Routes = [
 {path: 'requestlines/line/:id', component: LineComponent},
   {path: 'requestlines/create/:id',component: LineCreateComponent},
 {path: 'requestlines/edit/:id',component:LineEditComponent},
+
+{path: 'requests/review/list',component: ReviewListComponent},
+{path: 'requests/review/status/:id',component:ReviewStatusComponent},
+
 
 {path: 'login', component: LoginComponent},
  

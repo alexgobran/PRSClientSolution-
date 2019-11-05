@@ -1,0 +1,42 @@
+
+
+
+<app-menu></app-menu>
+<div class = "componenet">
+<div class = "header">
+<span class= "pagetitle">Request to Review</span> 
+
+
+<table style = width:100%>
+
+<tr class ="tableheader">
+  <td>Id</td>
+  <td><a (click)= "sortBy('description')">Description</a></td>
+  <td><a (click)= "sortBy('status')">Status</a></td>
+  <td><a (click)= "sortBy('total')">Total</a></td>
+  <td><a (click)= "sortBy('user.name')">User</a></td>
+  <td>Actions</td>
+
+</tr>
+<tr *ngFor = "let request of requests |searchRequests: searchCriteria | sort:sortCriteria:sortOrder ">
+   
+   
+   
+    <td>{{request.id}}</td>
+    <td>{{request.description}}</td>
+    <td>{{request.status}}</td>
+    <td>{{request.total}}</td>
+    <td>{{request.user.username}}</td>
+    
+<td>
+  <span class="actiondetail">
+    <a routerLink="/requests/review/status/{{request.id}}">Review</a>
+  </span> 
+
+
+</td>
+
+</tr>
+</table>
+</div>
+

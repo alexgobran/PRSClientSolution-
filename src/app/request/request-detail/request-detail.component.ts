@@ -4,6 +4,7 @@ import { Request } from '../request.class';
 import { ActivatedRoute, Router } from '@angular/router';
 import { User } from '../../user/user.class';
 import {SystemService} from '../../system/system.service';
+import { ReviewStatusComponent } from '../review-status/review-status.component';
 
 @Component({
   selector: 'app-request-detail',
@@ -35,8 +36,17 @@ currentuser: User;
       }
             ,err => console.error(err)
     );
-
   }
+  reviewStatus(): void {
+    this.requestsvc.review(this.request).subscribe(
+      res => {
+        console.log("Request review res:", res);
+        this.router.navigateByUrl("/requests/list");
+      }
+            ,err => console.error(err)
+    );
+  }
+
   ngOnInit() {
 
     // this.currentuser = this.syssvc.GetUser();

@@ -46,18 +46,18 @@ sortCriteria: string = "lastname";
     private syssvc: SystemService,
     ) { }
    
+     requestid = this.route.snapshot.params.id;
 
-    edit(): void {
-      this.router.navigateByUrl(`/requestlines/edit/ ${this.line.requestsId}`); 
+    edit(line): void {
+      // console.log("edit intiate");
+      this.router.navigateByUrl(`/requestlines/edit/${line.id}`); 
     }
-    delete(): void {
-      this.linesvc.remove(this.line).subscribe(
+    delete(line): void {
+      this.linesvc.remove(line).subscribe(
   
         res => {
-          // let requestid = this.route.snapshot.params.id
-
           console.log("Line delete res:", res);
-          this.router.navigateByUrl("/requestlines/line/{{line.requestsId}}");
+          this.router.navigateByUrl(`/requestlines/line/${this.requestid}`);
         }
               ,err => console.error(err)
       );
@@ -67,6 +67,7 @@ sortCriteria: string = "lastname";
 
 
      let requestid = this.route.snapshot.params.id
+
      this.requestsvc.get(requestid).subscribe(req => {
       this.request = req;
       console.log("Lines",req);
@@ -75,20 +76,11 @@ err =>{
   console.error(err);
 })
 
-    //    this.usersvc.get(this.currentuser).subscribe(
-    //  req=> { this.currentuser= req}
+    
           
       
   
          console.log("user:", this.currentuser);
-    //     }
-    // this.linesvc.get(this.request..id).subscribe(lines => {
-    //   this.lines = lines;
-    //   console.log("Lines",lines);
-  // }
-  //       , err => {
-  //         console.error(err)
-  //       })
   
     
 }

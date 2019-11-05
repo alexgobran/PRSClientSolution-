@@ -10,13 +10,14 @@ import { LineService } from './requestline/requestLines.services';
 
 
 
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  constructor (private linesvc: LineService, private usersvc: UserService, vendorsvc: VendorService, productsvc: ProductService,requestsvc: RequestService) {
+  constructor ( private linesvc: LineService, private usersvc: UserService, vendorsvc: VendorService, productsvc: ProductService,requestsvc: RequestService) {
     
   };
 

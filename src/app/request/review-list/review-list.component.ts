@@ -6,19 +6,15 @@ import {SystemService} from '../../system/system.service';
 import { Line} from '../../requestline/requestLines.class';
 import { LineService} from '../../requestline/requestLines.services';
 import { Subscriber } from 'rxjs';
-import { ActivatedRoute, Router } from '@angular/router';
-import { ReviewStatusComponent } from '../review-status/review-status.component';
-
-
-
+import { request } from 'http';
 
 @Component({
-  selector: 'app-request-list',
-  templateUrl: './request-list.component.html',
-  styleUrls: ['./request-list.component.css']
+  selector: 'app-review-list',
+  templateUrl: './review-list.component.html',
+  styleUrls: ['./review-list.component.css']
 })
-export class RequestListComponent implements OnInit {
-  user= this.syssvc.GetUser();
+export class ReviewListComponent implements OnInit {
+  get= this.syssvc.GetUser();
   requests: Request[]=[];
   lines: Line[]=[];
   request: Request;
@@ -34,48 +30,32 @@ export class RequestListComponent implements OnInit {
   this.sortCriteria = prop;
   }
   constructor(
-    private route: ActivatedRoute,
-    private router: Router,
     private requestsvc:RequestService,
     private syssvc:SystemService,
-    private linesvc:LineService
+    private linesvc:LineService,) { }
 
-  
-    ) {  }
+   
 
-  // reviewOnly(user):void {
-  //   this.requestsvc.reviews(this.get).subscribe (
-
-  //   res => {
-  //     console.log("Request review res:", res);
-  //     this.router.navigateByUrl("/requests/list");
-  //   }
-  //         ,err => console.error(err)
-  // );
-
-  // }
-
-
-  ngOnInit() {
-
-    
+  ngOnInit() { 
     
    
-    this.user;
+  let user= this.get;
 
     
     
 
-    this.requestsvc.list().subscribe(requests => {
+    this.requestsvc.reviews(user).subscribe(requests => {
       
-     
+      {
+        
       this.requests = requests;
-      console.log("Requests",requests);
+     
+      console.log("Requests",requests);}
     },
       err =>{
         console.error(err);
       })
-     }
+    }
   }
       
 
@@ -83,12 +63,5 @@ export class RequestListComponent implements OnInit {
       
     
       
-
-      
-
-      
-      
-      
-    
 
       
